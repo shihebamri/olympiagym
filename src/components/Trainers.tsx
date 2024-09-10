@@ -2,7 +2,14 @@ import { useState } from 'react'
 import { motion } from 'framer-motion'
 import { useInView } from 'react-intersection-observer'
 
-const trainers = [
+interface Trainer {
+  name: string;
+  image: string;
+  specialty: string;
+  bio: string;
+}
+
+const trainers: Trainer[] = [
   {
     name: 'John Doe',
     image: '/trainer-1.jpg',
@@ -24,7 +31,7 @@ const trainers = [
 ]
 
 export default function Trainers() {
-  const [selectedTrainer, setSelectedTrainer] = useState(null)
+  const [selectedTrainer, setSelectedTrainer] = useState<Trainer | null>(null)
   const [ref, inView] = useInView({
     triggerOnce: true,
     threshold: 0.1,

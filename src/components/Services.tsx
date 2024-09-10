@@ -27,7 +27,8 @@ export default function Services() {
     threshold: 0.1,
   })
 
-  const [activeService, setActiveService] = useState(null)
+  // Explicitly typing the state to handle number or null
+  const [activeService, setActiveService] = useState<number | null>(null)
 
   return (
     <section ref={ref} className="py-16 px-4 bg-white text-black">
